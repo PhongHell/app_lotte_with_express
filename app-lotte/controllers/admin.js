@@ -4,10 +4,12 @@ const fs = require("fs");
 const path = require("path");
 var mongoose = require('mongoose');
 const User = require("../models/user");
+const PlaceEffect = require("../models/placeEffect");
 const moment = require("moment");
 const ObjectId = require('mongoose').Types.ObjectId;
 
 exports.getHomeWatcher = (req, res, next) => {
+    const placeEffect = PlaceEffect.find({})
     res.render("pages/home", {
         docTitle: "home page",
         isAuthenticated: false,
